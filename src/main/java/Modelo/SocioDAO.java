@@ -7,6 +7,8 @@ package Modelo;
 import org.hibernate.Session;
 
 import Modelo.Socio;
+import jakarta.persistence.TypedQuery;
+import java.util.List;
 
 /**
  *
@@ -30,5 +32,12 @@ public class SocioDAO {
         Socio s = sesion.createQuery(consulta, Socio.class).setParameter("numero", numeroSocio).setParameter("dni", dni).uniqueResult();
         
         return s!=null; //devovlera true si existe alguno
+    }
+    
+    
+    public List<Socio> listaSocios(Session sesion)
+    {
+        TypedQuery<Socio> q = sesion.createNamedQuery("Socio.findAll", Socio.class);
+        return q.getResultList();
     }
 }

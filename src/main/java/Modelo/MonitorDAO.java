@@ -5,6 +5,7 @@
 package Modelo;
 
 import Modelo.Actividad;
+import Modelo.Monitor;
 
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
@@ -30,5 +31,11 @@ public class MonitorDAO {
             throw new NoResultException("No existe monitor con ese DNI o no tiene actividades asignadas");
         
         return actividades;
+    }
+    
+    public List<Monitor> listaMonitores(Session sesion)
+    {
+        TypedQuery<Monitor> q = sesion.createNamedQuery("Monitor.findAll", Monitor.class);
+        return q.getResultList();
     }
 }

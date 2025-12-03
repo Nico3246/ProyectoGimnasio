@@ -3,12 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
+
 import org.hibernate.SessionFactory;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
+
 import Vista.VistaMensajes;
 import Vista.VistaPrincipal;
+import Vista.VistaMonitores;
+import Vista.VistaSocios;
+import Vista.VistaActividades;
 /**
  *
  * @author Nicolás
@@ -26,6 +32,17 @@ public class ControladorPrincipal implements ActionListener{
         
         vPrincipal=new VistaPrincipal();
         vMensaje = new VistaMensajes();
+        
+        VistaMonitores vistaMonitores = vPrincipal.getVistaInicioMonitores();
+        ControladorMonitor cMonitor = new ControladorMonitor(sessionFactory,vistaMonitores,vMensaje);
+        
+        VistaSocios vistaSocios = vPrincipal.getVistaInicioSocios();
+        ControladorSocio cSocio = new ControladorSocio(sessionFactory,vistaSocios,vMensaje);
+        
+        VistaActividades vistaActividades = vPrincipal.getVistaInicioActividades();
+        ControladorActividad cActividad = new ControladorActividad(sessionFactory,vistaActividades,vMensaje);
+        
+        
         addListeners();
         
         vPrincipal.setLocationRelativeTo(null);

@@ -14,17 +14,17 @@ import javax.swing.JOptionPane;
 
 /**
  * Clase para mostrar mensajes mediante JOptionPane
- * (según el ejemplo del PDF: vMensaje.Mensaje(..., "info" / "error"...))
+ * como en el ejemplo del PDF: vMensaje.Mensaje(..., "info"/"error"...)
  */
 public class VistaMensajes {
 
     /**
      * Muestra un mensaje en una ventana emergente.
      *
-     * @param parent    Ventana padre (JFrame o JPanel). Puede ser null.
-     * @param texto     Texto del mensaje.
-     * @param titulo    Título de la ventana. Si es null se pone uno por defecto.
-     * @param tipo      Tipo de mensaje: "info", "error", "warning", "plain".
+     * @param parent Ventana padre (puede ser null).
+     * @param texto  Texto del mensaje.
+     * @param titulo Título de la ventana (si es null se pone uno por defecto).
+     * @param tipo   "info", "error", "warning", "plain".
      */
     public void Mensaje(Component parent, String texto, String titulo, String tipo) {
 

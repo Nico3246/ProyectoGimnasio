@@ -37,11 +37,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         panelInicio = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelMonitores = new javax.swing.JPanel();
-        vistaInicioMonitores1 = new Vista.VistaInicioMonitores();
+        vistaInicioMonitores1 = new Vista.VistaMonitores();
         panelSocios = new javax.swing.JPanel();
-        vistaInicioSocios1 = new Vista.VistaInicioSocios();
+        vistaInicioSocios1 = new Vista.VistaSocios();
         panelActividades = new javax.swing.JPanel();
-        vistaInicioActividades1 = new Vista.VistaInicioActividades();
+        vistaInicioActividades1 = new Vista.VistaActividades();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemInicio = new javax.swing.JMenuItem();
@@ -203,8 +203,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JPanel panelInicio;
     public javax.swing.JPanel panelMonitores;
     public javax.swing.JPanel panelSocios;
-    private Vista.VistaInicioActividades vistaInicioActividades1;
-    private Vista.VistaInicioMonitores vistaInicioMonitores1;
-    private Vista.VistaInicioSocios vistaInicioSocios1;
+    private Vista.VistaActividades vistaInicioActividades1;
+    private Vista.VistaMonitores vistaInicioMonitores1;
+    private Vista.VistaSocios vistaInicioSocios1;
     // End of variables declaration//GEN-END:variables
+
+    public VistaMonitores getVistaInicioMonitores() {
+        return vistaInicioMonitores1;
+    }
+    
+    public VistaSocios getVistaInicioSocios() {
+        return vistaInicioSocios1;
+    }
+    
+    public VistaActividades getVistaInicioActividades() {
+        return vistaInicioActividades1;
+    }
+
 }

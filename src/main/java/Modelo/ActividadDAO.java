@@ -10,6 +10,7 @@ package Modelo;
  */
 import org.hibernate.Session;
 import jakarta.persistence.TypedQuery;
+import java.util.List;
 
 public class ActividadDAO {
     
@@ -25,5 +26,11 @@ public class ActividadDAO {
         q.setParameter("idActividad", idActividad);
          
         return q.getResultStream().findFirst().orElse(null);
+    }
+    
+    public List<Actividad> listaActividades(Session sesion)
+    {
+        TypedQuery<Actividad> q = sesion.createNamedQuery("Actividad.findAll", Actividad.class);
+        return q.getResultList();
     }
 }
