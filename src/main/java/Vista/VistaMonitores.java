@@ -10,6 +10,7 @@ package Vista;
  */
 public class VistaMonitores extends javax.swing.JPanel {
 
+    private Controlador.ControladorMonitor controladorMonitor;
     /**
      * Creates new form VistaInicioMonitores
      */
@@ -29,6 +30,9 @@ public class VistaMonitores extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaMonitores = new javax.swing.JTable();
+        btnNuevoMonitor = new javax.swing.JButton();
+        btnBajaMonitor = new javax.swing.JButton();
+        btnActualizarMonitor = new javax.swing.JButton();
 
         jLabel1.setText("Gestión de Monitores");
 
@@ -45,6 +49,27 @@ public class VistaMonitores extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaMonitores);
 
+        btnNuevoMonitor.setText("Nuevo Monitor");
+        btnNuevoMonitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoMonitorActionPerformed(evt);
+            }
+        });
+
+        btnBajaMonitor.setText("Baja de Monitor");
+        btnBajaMonitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBajaMonitorActionPerformed(evt);
+            }
+        });
+
+        btnActualizarMonitor.setText("Actualización de Monitor");
+        btnActualizarMonitor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarMonitorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -52,10 +77,17 @@ public class VistaMonitores extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1215, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1215, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNuevoMonitor)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnBajaMonitor)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnActualizarMonitor)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -65,18 +97,66 @@ public class VistaMonitores extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoMonitor)
+                    .addComponent(btnBajaMonitor)
+                    .addComponent(btnActualizarMonitor)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNuevoMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoMonitorActionPerformed
+        // TODO add your handling code here:
+        if(controladorMonitor != null)
+        {
+            controladorMonitor.abrirVentanaNuevoMonitor();
+        }
+    }//GEN-LAST:event_btnNuevoMonitorActionPerformed
+
+    private void btnBajaMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaMonitorActionPerformed
+        // TODO add your handling code here:
+        if(controladorMonitor != null)
+        {
+            controladorMonitor.bajaMonitor();
+        }
+    }//GEN-LAST:event_btnBajaMonitorActionPerformed
+
+    private void btnActualizarMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarMonitorActionPerformed
+        // TODO add your handling code here:
+        if(controladorMonitor != null)
+        {
+            controladorMonitor.actualizarMonitor();
+        }
+    }//GEN-LAST:event_btnActualizarMonitorActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaMonitores;
+    private javax.swing.JButton btnActualizarMonitor;
+    private javax.swing.JButton btnBajaMonitor;
+    private javax.swing.JButton btnNuevoMonitor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JTable getTablaMonitores() {
         return TablaMonitores;
+    }
+    
+    public javax.swing.JButton getBtnNuevoMonitor() {
+        return btnNuevoMonitor;
+    }
+    
+    public javax.swing.JButton getBtnBajaMonitor() {
+        return btnBajaMonitor;
+    }
+    
+    public javax.swing.JButton getBtnActualizarMonitor() {
+        return btnActualizarMonitor;
+    }
+    
+    public void setControladorMonitor(Controlador.ControladorMonitor controladorMonitor)
+    {
+        this.controladorMonitor=controladorMonitor;
     }
 }
